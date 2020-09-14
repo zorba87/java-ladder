@@ -18,6 +18,13 @@ public class UserInput {
 
     public static int inputHeight() {
         System.out.println(Q_HEIGHT);
-        return SC.nextInt();
+        int height = SC.nextInt();
+        SC.nextLine();
+        return height;
+    }
+
+    public static int countPerson(String names) {
+        String inputs[] = names.split(",");
+        return inputs.length;
     }
 }
