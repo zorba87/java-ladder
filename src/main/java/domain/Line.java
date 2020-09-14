@@ -1,6 +1,5 @@
 package domain;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +11,16 @@ public class Line {
         // 라인의 좌표 값에 선이 있는지 유무를 판단하는 로직 추가
 //        System.out.println(countOfPerson);
 
+
         init(countOfPerson);
     }
 
     public Line(List<Point> points){
         this.points = points;
+    }
+
+    public int move(int position){
+        return points.get(position).move();
     }
 
     private Line init(int countOfPerson) {
@@ -28,7 +32,7 @@ public class Line {
     }
 
     private Point initFirst(List<Point> points) {
-        Point point = Point.first(new Point());
+        Point point = Point.first(true);
         points.add(point);
         return point;
     }

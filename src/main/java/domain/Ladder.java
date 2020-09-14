@@ -36,7 +36,7 @@ public class Ladder {
         List<Line> lines = new ArrayList<>();
 
         for (int i = 0; i < countOfPerson; i++) {
-            lines.add(new Line(i,height));
+            lines.add(new Line(countOfPerson));
 
         }
 

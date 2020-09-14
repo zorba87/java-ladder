@@ -8,6 +8,11 @@ public class Point {
 
     }
 
+    public Point(int index, Direction direction) {
+        this.index = index;
+        this.direction = direction;
+    }
+
     public int move() {
         if (direction.isRight()) {
             return index + 1;
@@ -18,12 +23,8 @@ public class Point {
         return this.index;
     }
 
-    public Point(int index, Direction direction) {
-        this.index = index;
-        this.direction = direction;
-    }
 
-    public static Point first(Point point) {
+    public static Point first(Boolean right) {
         return new Point(0, Direction.first(right));
     }
 
