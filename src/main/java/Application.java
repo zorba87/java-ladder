@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import domain.Ladder;
 import utility.UserInput;
 import view.View;

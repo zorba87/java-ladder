@@ -3,24 +3,20 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utility.LadderPointGenerator.generatePoint;
+
 public class Line {
     private List<Point> points;
 //    private List<Boolean> points = new ArrayList<>();
 
     public Line(int countOfPerson){
         // 라인의 좌표 값에 선이 있는지 유무를 판단하는 로직 추가
-//        System.out.println(countOfPerson);
-
 
         init(countOfPerson);
     }
 
     public Line(List<Point> points){
         this.points = points;
-    }
-
-    public int move(int position){
-        return points.get(position).move();
     }
 
     private Line init(int countOfPerson) {
@@ -32,7 +28,7 @@ public class Line {
     }
 
     private Point initFirst(List<Point> points) {
-        Point point = Point.first(true);
+        Point point = Point.first(generatePoint());
         points.add(point);
         return point;
     }
