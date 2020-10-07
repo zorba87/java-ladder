@@ -1,6 +1,8 @@
 package utility;
 
-import domain.User;
+import domain.Player;
+import domain.Players;
+import domain.Rewards;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +16,7 @@ public class UserInput {
     private UserInput() {
     }
 
-    public static List<User> inputUserNames() {
-        System.out.println(NAMES);
-        String input = SC.nextLine();
-        String users[] = input.split(",");
-
-        List<User> list = new ArrayList<>();
-
-        for (String userName : users) {
-            list.add(new User(userName));
-        }
-        return list;
-    }
-
-    public static int inputHeight() {
+    public static int getHeight() {
         System.out.println(HEIGHT);
         int height = SC.nextInt();
         SC.nextLine();
@@ -47,5 +36,35 @@ public class UserInput {
         String input = SC.nextLine();
 
         return input;
+    }
+
+    public static Players createPlayers() {
+        System.out.println(NAMES);
+        String input = SC.nextLine();
+        String users[] = input.split(",");
+
+        List<Player> playerList = new ArrayList<>();
+
+        for (String userName : users) {
+            playerList.add(new Player(userName));
+        }
+        Players players = new Players(playerList);
+
+        return players;
+    }
+
+    public static Rewards createRewards() {
+        System.out.println(RESULT_INPUT);
+        String result = SC.nextLine();
+        String results[] = result.split(",");
+
+        List<String> rewardList = new ArrayList<>();
+
+        for (String reward : results) {
+            rewardList.add(reward);
+        }
+        Rewards rewards = new Rewards(rewardList);
+
+        return rewards;
     }
 }

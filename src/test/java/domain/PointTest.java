@@ -1,13 +1,43 @@
 package domain;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PointTest {
+    @Test
+    public void first(){
+        assertThat(Point.first(TRUE).move()).isEqualTo(1);
+        assertThat(Point.first(FALSE).move()).isEqualTo(0);
+    }
+
+    @Test
+    public void next_stay(){
+        Point second = Point.first(FALSE).next(FALSE);
+        assertThat(second.move()).isEqualTo(1);
+    }
+
+    @Test
+    public void next_left(){
+        Point second = Point.first(TRUE).next(FALSE);
+        assertThat(second.move()).isEqualTo(0);
+
+    }
+
+    @Test
+    public void next_right(){
+        Point second = Point.first(FALSE).next(TRUE);
+        assertThat(second.move()).isEqualTo(2);
+    }
+
+    @Test
+    public void next(){
+        Point second = Point.first(TRUE).next();
+        assertThat(second.move()).isEqualTo(0);
+    }
+/*
 
     @DisplayName("index 테스트")
     @Test
@@ -24,4 +54,5 @@ public class PointTest {
         assertThat(point.isRight()).isEqualTo(true);
         assertThat(point.isLeft()).isEqualTo(false);
     }
+*/
 }

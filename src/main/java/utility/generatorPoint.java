@@ -6,7 +6,7 @@ public class generatorPoint {
 
     private generatorPoint(){}
 
-    public static boolean makeDirection() {
+    public static boolean generationPoint() {
         Random random = new Random();
         return random.nextBoolean();
     }

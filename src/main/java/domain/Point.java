@@ -1,41 +1,37 @@
 package domain;
 
-import static utility.generatorPoint.makeDirection;
-
 public class Point {
-    private int index;
-    private boolean right;
-    private boolean left;
+    private final Direction direction;
+    private final int index;
 
-    public Point(int index, boolean left, boolean right) {
+    public Point(int index, Direction direction) {
         this.index = index;
-        this.left = left;
-        this.right = right;
+        this.direction = direction;
     }
 
-    public boolean isRight() {
-        return right;
+
+    public static Point first(Boolean right) {
+        return new Point(0, Direction.first(right));
     }
 
-    public boolean isLeft() {
-        return left;
+    public int move() {
+        System.out.println("is left? " + direction.isLeft());
+        System.out.println("is right? " + direction.isRight());
+
+        if (direction.isRight()) {
+            return index + 1;
+        }
+        if (direction.isLeft()) {
+            return index - 1;
+        }
+        return this.index;
+    }
+
+    public Point next(Boolean right) {
+        return new Point(index + 1, direction.next(right));
     }
 
     public Point next() {
-        if (this.right) {
-            return new Point(index + 1, true, false);
-        }
-        return new Point(index + 1, false, makeDirection());
-    }
-
-    public Point last() {
-        if (this.right) {
-            return new Point(index + 1, true, false);
-        }
-        return new Point(index + 1, false, false);
-    }
-
-    public int getIndex() {
-        return index;
+        return new Point(index + 1,direction.next());
     }
 }

@@ -1,8 +1,6 @@
 package view;
 
-import domain.Ladder;
 import domain.Line;
-import domain.User;
 
 import java.util.List;
 
@@ -22,6 +20,7 @@ public class View {
 
     private View() {
     }
+/*
 
     public static void showLadder(Ladder ladder) {
         List<Line> lines = ladder.getLines();
@@ -76,4 +75,5 @@ public class View {
             }
         }
     }
+*/
 }
